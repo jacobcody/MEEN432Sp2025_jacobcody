@@ -1,0 +1,5 @@
+b = 1 %damping coefficient
+J = 1 %inertia
+A = 1 %applied torque constant
+w_0 = 1 %angular velo initial
+  
