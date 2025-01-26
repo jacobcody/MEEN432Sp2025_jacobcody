@@ -22,6 +22,7 @@ methods (both fixed time step and variable time step)
 
 -Contour plots of constant system eigen values with
 Max Sim Error on y axis and CPU time on x axis.
+
 -Contour plots of constant input frequencies with Max
 Sim Error on y axis and CPU time on x axis.
  
