@@ -2,7 +2,7 @@ Howdy!
 
 For Project 1 Part 1, download the Project1_Part1_Code.m and Project1_Part1_Model.slx files. Open up both of them and run the simulink model first. This is to sync the model and code. After running the simulink model, run the code and observe the plots. 
 
-*Note, if there's any error codes that pop up when synching the simulink model, re-sync the model again*
+(Note, if there's any error codes that pop up when synching the simulink model, re-sync the model again)
 
 Each set of plots is from a different combination of time steps and integration methods. Since there's 2 integrations methods (Euler and Runge Kutta), as well as 3 different time steps (0.001 seconds, 0.1 seconds, and 1 second), there will be 5 sets of graphs. 
 
