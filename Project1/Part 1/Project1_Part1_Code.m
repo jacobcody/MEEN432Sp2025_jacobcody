@@ -29,14 +29,14 @@ for dT = dT_values
         plot(tout, omega_anal, 'r')
         xlabel('time (s)')
         ylabel('angular velocity (rad/s)')
-        title(['Theoretical Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)']);
+        title(['Theoretical Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
 
         fig2 = figure;
         plot(out.omega.time, out.omega.Data, '-+')
         grid on
         xlabel('time (s)')
         ylabel('angular velocity (rad/s)')
-        title(['Simulated Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)']);
+        title(['Simulated Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
 
         fig3 = figure;
         plot(out.theta.time, out.theta.Data);
@@ -50,14 +50,14 @@ for dT = dT_values
         grid on
         xlabel('time (s)')
         ylabel('Damping Force (N)')
-        title(['Damping Force (Solver:' solver ', dT: ' num2str(dT) ' s)']);
+        title(['Damping Force (Solver:' solver ', dT: ' num2str(dT) ' s)'])
 
         fig5 = figure;
         plot(out.ActuationForce.time, out.ActuationForce.Data);
         grid on
         xlabel('time (s)')
         ylabel('Actuation Force (N)')
-        title(['Actuation Force (Solver: ' solver ', dT: ' num2str(dT) ' s)']);
+        title(['Actuation Force (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
 
         error = abs(out.omega.Data - omega_anal); %error between theoretical and analytical velocities
         max_sim_error = max(error); % max error
@@ -72,10 +72,31 @@ end
 
 fig6 = figure;
 hold on;
+plot(dT_values, error_data(1:3), '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'b'); %euler iterations
+plot(dT_values, error_data(4:6), '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'r'); %runge kutta iterations
+xlabel('Time Step (s)');  
+ylabel('Max Simulation Error');
+title('Max Simulation Error vs Time Step for Fixed Time Step Integration Methods');
+grid on;
+legend('Euler (ode1)', 'Runge Kutta 4th Order (ode4)', 'Location', 'northwest');
+
+
+fig7 = figure;
+hold on;
 plot(dT_values, time_data(1:3), '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'b'); %euler iterations
 plot(dT_values, time_data(4:6), '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'r'); %runge kutta iterations
 xlabel('Time Step (s)');  
 ylabel('CPU Time (seconds)');
 title('CPU Time vs Time Step for Fixed Time Step Integration Methods');
+grid on;
+legend('Euler (ode1)', 'Runge Kutta 4th Order (ode4)', 'Location', 'northwest');
+
+fig8 = figure;
+hold on;
+plot(time_data(1:3),error_data(1:3) , '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'b'); % Euler iterations
+plot(time_data(4:6), error_data(4:6) , '-*', 'LineWidth', 1, 'MarkerSize', 5, 'Color', 'r'); % Runge-Kutta iterations
+xlabel('CPU Time (seconds)');  
+ylabel('Max Simulation Error');
+title('Max Simulation Error vs CPU Time for Fixed Time Step Integration Methods');
 grid on;
 legend('Euler (ode1)', 'Runge Kutta 4th Order (ode4)', 'Location', 'northwest');
