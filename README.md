@@ -1,6 +1,6 @@
 Howdy! 
 
-For Project 1 Part 1, download the Project1_Part1_Code.m and Project1_Part1_Model.slx files. Open up both of them and run the simulink model first. This is to sync the model and code. After running the simulink model, run the code and observe the plots. 
+For Project 1 Part 1, download the Project1_Part1_Code_revision.m and Project1_Part1_Model.slx files. Open up both of them and run the simulink model first. This is to sync the model and code. After running the simulink model, run the code and observe the plots. 
 
 (Note, if there's any error codes that pop up when syncing the Simulink model, try re-syncing the model again. Typically, syncing the model, followed by the code, and then resyncing the model and code again resolves any errors)
 
