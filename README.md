@@ -8,15 +8,18 @@ Each set of plots is from a different combination of time steps and integration 
 
 Additionally, there are plots showing:
 
-1. Max simulation Error vs time step, for the different
+-Max simulation Error vs time step, for the different
 fixed time step Integration methods
-2. CPU Time taken vs time step, for the different fixed
+-CPU Time taken vs time step, for the different fixed
 time step integration method
-3. Max simulation Error vs CPU Time taken for the
+-Max simulation Error vs CPU Time taken for the
 simulation, for each of the different integration
 methods (both fixed time step and variable time step)
-4. Contour plots of constant system eigen values with
+
+(Note, we were unable to complete the contour plots, but they'll be added by the project deadline.)
+
+-Contour plots of constant system eigen values with
 Max Sim Error on y axis and CPU time on x axis.
-5. Contour plots of constant input frequencies with Max
+-Contour plots of constant input frequencies with Max
 Sim Error on y axis and CPU time on x axis.
  
