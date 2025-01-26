@@ -6,10 +6,6 @@ For Project 1 Part 1, download the Project1_Part1_Code.m and Project1_Part1_Mode
 
 Each set of plots is a different combination of time steps and integration methods. Since there's 2 integrations methods (Euler and Runge Kutta), as well as 3 different time steps (0.001 seconds, 0.1 seconds, and 1 second), there will be 5 sets of graphs. 
 
-
-
-
-
 Additionally, there are plots showing:
 
 -Max simulation Error vs time step, for the different
