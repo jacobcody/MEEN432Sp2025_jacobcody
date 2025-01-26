@@ -10,8 +10,10 @@ Additionally, there are plots showing:
 
 -Max simulation Error vs time step, for the different
 fixed time step Integration methods
+
 -CPU Time taken vs time step, for the different fixed
 time step integration method
+
 -Max simulation Error vs CPU Time taken for the
 simulation, for each of the different integration
 methods (both fixed time step and variable time step)
