@@ -18,11 +18,3 @@ time step integration method
 simulation, for each of the different integration
 methods (both fixed time step and variable time step)
 
-(Note, we were unable to complete the contour plots, but they'll be added by the project deadline.)
-
--Contour plots of constant system eigen values with
-Max Sim Error on y axis and CPU time on x axis.
-
--Contour plots of constant input frequencies with Max
-Sim Error on y axis and CPU time on x axis.
- 
