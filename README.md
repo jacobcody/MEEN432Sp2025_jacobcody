@@ -18,3 +18,6 @@ time step integration method
 simulation, for each of the different integration
 methods (both fixed time step and variable time step)
 
+Notes for part1:
+
+In order to fix the error between running the script, simulation, script try using the load simulation method in your script after you initial values are initialized.
