@@ -1,24 +1,25 @@
 % Initialization
 theta0 = 0; % rad
-omega0 = [10,0]; % Angular velocity in rad/s
+omega_init = [10,0]; % Angular velocity in rad/s
 J1 = [100, 0.01]; % Inertia in kg m^2
-b = [10, 0.1]; % damping coefficient Nm/(rad/s)
-tau0 = [0, 100]; %d
+b_val = [10, 0.1]; % damping coefficient Nm/(rad/s)
+tau = [0, 100]; %d
 t_freq = [0.1, 100]; %rad/s
 
 torque_mode = [0,1]; % 0 is sinusoidal, 1 is constant torque
 dT_values = [0.001, 0.1, 1]; % Time steps
 fixed_solver = ["ode1", "ode4"]; % Ode1 is Euler and Ode4 is Runge Kutta
+variable_solver = []
 stopTime = 25; % stop time in sec
 time_data = []; % Initialize array to store CPU time data
 fig_storage = {}; %storage
 
 set_param('Project1_Part1_Model', 'FastRestart', 'off') %this helps with iterations
 
-for omega = omega0
+for omega0 = omega_init
     for J = J1
-        for b_val = b
-            for tau = tau0
+        for b = b_val
+            for tau0 = tau
                 for freq = t_freq
                     for torque = torque_mode
                         for dT = dT_values
