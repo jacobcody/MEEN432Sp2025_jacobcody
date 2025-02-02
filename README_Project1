@@ -2,7 +2,8 @@ Howdy!
 
 For Project 1, open the Part 2 folder and download the Project1_Part1_Code_revision_current.m and Project1_Part1_Model_current.slx files. Open up both of them and run the simulink model first. This is to sync the model and code. After running the simulink model, run the code and observe the plots. 
 
-(Note, if there's any error codes that pop up when syncing the Simulink model, try re-syncing the model again. Typically, syncing the model, followed by the code, and then resyncing the model and code again resolves any errors)
+Problems we are seeing: Time data will not be stored sometimes for some reason. It works on our end until we redownload the file, so it's some kind of initialization problem. We tried the 
+load_system command it just simply will not work. It works after we debug over time, so we know it's a simple error but we can't figure it out.
 
 Each set of plots is a different combination of time steps and integration methods. They're stored so not all of them generate on an iteration.
 
