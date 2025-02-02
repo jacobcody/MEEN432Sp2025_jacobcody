@@ -4,7 +4,7 @@ omega_init = [10,0]; % Angular velocity in rad/s
 J1 = [100, 0.01]; % Inertia in kg m^2
 b_val = [10, 0.1]; % damping coefficient Nm/(rad/s)
 tau = [0, 100]; %d
-t_freq = [0.1, 100]; %rad/s
+w_freq = [0.1, 100]; %rad/s
 
 torque_mode = [0,1]; % 0 is sinusoidal, 1 is constant torque
 dT_values = [0.001, 0.1, 1]; % Time steps
@@ -25,63 +25,133 @@ for dT = dT_values
         for J = J1
             for b = b_val
                 for torque = torque_mode
-                    try
+                    for w = w_freq
+                        try
+        
+                            set_param('Project1_Part1_Model_current', 'Solver', solver, 'FixedStep', num2str(dT));
+                    
+                            tic; %starts timer
+                    
+                            sim('Project1_Part1_Model_current');  
+                    
+                            tout = 0:dT:stopTime; %time vector
+                            omega_anal = tau0/b * (1 - exp(-b/J*tout)) + omega0 * b/J;
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(tout, omega_anal, 'r')
+                            xlabel('time (s)')
+                            ylabel('angular velocity (rad/s)')
+                            title(['Theoretical Rotational Speed of Shaft' newline ...
+                           'Solver: ' solver newline ...
+                           'dT: ' num2str(dT) ' s'], 'Interpreter', 'none');
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.omega.time, out.omega.Data, '-+')
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('angular velocity (rad/s)')
+                            title(['Simulated Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.theta.time, out.theta.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('position (rad)')
+                            title(['Position of Shaft (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.DampingForce.time, out.DampingForce.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('Damping Force (N)')
+                            title(['Damping Force (Solver:' solver ', dT: ' num2str(dT) ' s)'])
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.ActuationForce.time, out.ActuationForce.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('Actuation Force (N)')
+                            title(['Actuation Force (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
+        
+                            elapsed_time = toc;
+                            time_data = [time_data, elapsed_time]; %appending cpu time per sim
+                    
+                            error = abs(out.omega.Data - omega_anal); %error between theoretical and analytical velocities
+                            max_sim_error = max(error); % max error
     
-                        set_param('Project1_Part1_Model_current', 'Solver', solver, 'FixedStep', num2str(dT));
-                
-                        tic; %starts timer
-                
-                        sim('Project1_Part1_Model_current');  
-                
-                        tout = 0:dT:stopTime; %time vector
-                        omega_anal = tau0/b * (1 - exp(-b/J*tout)) + omega0 * b/J;
-                
-                        fig_storage{end+1} = figure('Visible', 'off');
-                        plot(tout, omega_anal, 'r')
-                        xlabel('time (s)')
-                        ylabel('angular velocity (rad/s)')
-                        title(['Theoretical Rotational Speed of Shaft' newline ...
-                       'Solver: ' solver newline ...
-                       'dT: ' num2str(dT) ' s'], 'Interpreter', 'none');
-                
-                        fig_storage{end+1} = figure('Visible', 'off');
-                        plot(out.omega.time, out.omega.Data, '-+')
-                        grid on
-                        xlabel('time (s)')
-                        ylabel('angular velocity (rad/s)')
-                        title(['Simulated Rotational Speed (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
-                
-                        fig_storage{end+1} = figure('Visible', 'off');
-                        plot(out.theta.time, out.theta.Data);
-                        grid on
-                        xlabel('time (s)')
-                        ylabel('position (rad)')
-                        title(['Position of Shaft (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
-                
-                        fig_storage{end+1} = figure('Visible', 'off');
-                        plot(out.DampingForce.time, out.DampingForce.Data);
-                        grid on
-                        xlabel('time (s)')
-                        ylabel('Damping Force (N)')
-                        title(['Damping Force (Solver:' solver ', dT: ' num2str(dT) ' s)'])
-                
-                        fig_storage{end+1} = figure('Visible', 'off');
-                        plot(out.ActuationForce.time, out.ActuationForce.Data);
-                        grid on
-                        xlabel('time (s)')
-                        ylabel('Actuation Force (N)')
-                        title(['Actuation Force (Solver: ' solver ', dT: ' num2str(dT) ' s)'])
+                            eigen_val = -b/J;
+                            eigen_val_storage = [eigen_val_storage,eigen_val];
+
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+for dT = dT_values
+    for solver = variable_solver
+        for J = J1
+            for b = b_val
+                for torque = torque_mode
+                    for w = w_freq
+                        try
+        
+                            set_param('Project1_Part1_Model_current', 'Solver', solver, 'Variable Step');
+                    
+                            tic; %starts timer
+                    
+                            sim('Project1_Part1_Model_current');  
+                    
+                            tout = 0:dT:stopTime; %time vector
+                            omega_anal = tau0/b * (1 - exp(-b/J*tout)) + omega0 * b/J;
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(tout, omega_anal, 'r')
+                            xlabel('time (s)')
+                            ylabel('angular velocity (rad/s)')
+                            title(['Theoretical Rotational Speed of Shaft' newline ...
+                           'Solver: ' solver], 'Interpreter', 'none');
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.omega.time, out.omega.Data, '-+')
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('angular velocity (rad/s)')
+                            title(['Simulated Rotational Speed (Solver: ', solver,')']);
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.theta.time, out.theta.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('position (rad)')
+                            title(['Position of Shaft (Solver: ', solver, ')']);
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.DampingForce.time, out.DampingForce.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('Damping Force (N)')
+                            title(['Damping Force (Solver: ', solver, ')']);
+                    
+                            fig_storage{end+1} = figure('Visible', 'off');
+                            plot(out.ActuationForce.time, out.ActuationForce.Data);
+                            grid on
+                            xlabel('time (s)')
+                            ylabel('Actuation Force (N)')
+                            title(['Actuation Force (Solver: ', solver, ')']);
+        
+                            elapsed_time = toc;
+                            time_data = [time_data, elapsed_time]; %appending cpu time per sim
+                    
+                            error = abs(out.omega.Data - omega_anal); %error between theoretical and analytical velocities
+                            max_sim_error = max(error); % max error
     
-                        elapsed_time = toc;
-                        time_data = [time_data, elapsed_time]; %appending cpu time per sim
-                
-                        error = abs(out.omega.Data - omega_anal); %error between theoretical and analytical velocities
-                        max_sim_error = max(error); % max error
+                            eigen_val = -b/J;
+                            eigen_val_storage = [eigen_val_storage,eigen_val];
 
-                        eigen_val = -b/J;
-                        eigen_val_storage = [eigen_val_storage,eigen_val];
-
-
+                        end
                     end
                 end
             end
