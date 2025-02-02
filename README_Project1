@@ -1,1 +1,17 @@
+Howdy! 
 
+For Project 1, open the Part 2 folder and download the Project1_Part1_Code_revision_current.m and Project1_Part1_Model_current.slx files. Open up both of them and run the simulink model first. This is to sync the model and code. After running the simulink model, run the code and observe the plots. 
+
+(Note, if there's any error codes that pop up when syncing the Simulink model, try re-syncing the model again. Typically, syncing the model, followed by the code, and then resyncing the model and code again resolves any errors)
+
+Each set of plots is a different combination of time steps and integration methods. They're stored so not all of them generate on an iteration.
+
+Additionally, there are plots showing:
+
+-Max simulation Error vs time step, for the different
+fixed time step Integration methods
+
+-CPU Time taken vs time step, for the different fixed
+time step integration method
+
+-Eigenvalues are stored in a list
