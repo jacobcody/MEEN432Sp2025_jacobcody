@@ -10,3 +10,8 @@ TA Notes (Part 1):
 2. Simulink needed(Week1 exempted but going forward for Week2 is necessary)
 3. Implementation of Vd = R/Psi(dot) not visible. Do this before moving forward of implementing dynamics to code.
 4. Generate Track should have the track, innertrack, and outertrack. Do not just make the width of the line 15.
+
+
+WEEK 2
+
+For Project 2, Week 2, open the Matlab file named ____.m and the Simulink file named _____.slx. Run the Matlab code to initialize the workspace for the Simulink to read from, then run the Simulink where the XY plot should populate with our car's path. What our simulink is doing is starting with the initial values given by the Matlab script, first running them through our Driver Subsystem which uses geometry and the coordinates to determine where on the track it is and what the look-ahead value (phi_d) should be. This look-ahead value is then run through a PID controller to be analyzed for the error and then plugged into the function to acquire delta_f, the angle of the front wheels. From here, the model takes this angle and the velocity in the defined x-direction to determine the lateral dynamics of the vehicle through the calculation of Tire Slip and Tire Force. This lateral dynamic function then calculates the acceleration in the y-direction and omega_dot which is integrated to find psi, which is the angle at which the car is moving. The simulink then complies the x-direction velocity, y-direction velocity, and psi to translate it into X and Y coordinates which are then plotted on the XY plot and plugged back into the beginning of the process to repeat as the car proceeds around the track.  
