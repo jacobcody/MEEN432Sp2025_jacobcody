@@ -23,5 +23,5 @@ carData.vxd = 3.25; % m/s - X Velo
 carData.vx_threshold1 = 0.1; % m/s - Minimum x velo
 
 K_p = 2.5;
-K_i = 0.12;
+K_i = 0.12; %might try 2 and 0.08 for Kp and Kd stuff too
 K_d = 0;
