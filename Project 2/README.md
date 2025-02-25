@@ -23,3 +23,9 @@ TA Notes Week2:
 2. Where is your simulation? (Should have been completed in Week1).
 3. Simulation cannot finish compiling even with the new uploaded version.
 4. XY graph is generated yet insufficient, car should begin at (0,0) and end at (0,0).
+
+
+
+WEEK 3/FINAL
+
+The folder 'Week 3' contains our final deliverables submission for Project 2. In order to run our code, open the files included in this folder (Proj2_Initialization.m, Proj2_Output.m, Proj2_Track.m, Project2_sim.slx, raceStat.m) and run the matlab script within 'Proj2_Output.m' which has commands to run/simlate the other matlab scripts and Simulink Model. This script should produce a figure of our track with a model of our car going around it as well as display some of the information programmed within the 'raceStat.m' file. Some hardships we encountered during this part of the project were some interesting physics and modelling within our simulink, but overall, a mostly accurate path around the track, though not quickly. As well as an issue getting our patch in on our figure to change heading alongside the theoretical model.
