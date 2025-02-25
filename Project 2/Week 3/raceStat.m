@@ -46,7 +46,3 @@ else
     disp('The vehicle stayed within track limits.');
 end
 
-    disp('Warning: The vehicle went out of track boundaries!');
-else
-    disp('The vehicle stayed within track limits.');
-end
