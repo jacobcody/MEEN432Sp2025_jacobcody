@@ -1,5 +1,5 @@
 clear; clc;
-run('Proj2_Initialization_Marshall.m');
+run('Proj2_Initialization.m');
 simOut = sim('Project2_sim.slx'); 
 
 % Data from the simulation
