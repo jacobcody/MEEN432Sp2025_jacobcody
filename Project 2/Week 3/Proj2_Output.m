@@ -1,29 +1,14 @@
-%run("Proj2_Track.m");
+clear;
+run("Proj2_Track.m");
 run("Proj2_Initialization.m");
+sim("Project2_sim.slx",1000)
+run('raceStat.m')
 
-xData = out.x_val.Data; %getting data from to workspace
-yData = out.y_val.Data;
-t = out.x_val.Time;  
-
-rectX = -200; % track creation modeled below
-rectY = 0;
-rectWidth  = 1300;  
-rectHeight = 400;   
-
-inner = rectangle('Position', [rectX, rectY, rectWidth, rectHeight], ...
-          'Curvature', 1, 'EdgeColor', 'k', 'LineWidth', 5);
-
-track = rectangle('Position', [rectX, rectY, rectWidth, rectHeight], ...
-          'Curvature', 1, 'EdgeColor', 'k', 'LineWidth', 10);
-
-outer = rectangle('Position', [rectX, rectY, rectWidth, rectHeight], ...
-          'Curvature', 1, 'EdgeColor', 'k', 'LineWidth', 15);
-
-axis([-250, 1150, -250, 1150]);
-title('Race Track Sim');
+xData = simOut.x_val.Data; %getting data from to workspace
+yData = simOut.y_val.Data;
+t = simOut.x_val.Time;  
 
 
-theta_val = zeros(1, percent_complete+1);
 
 
 
@@ -49,15 +34,15 @@ for i = 1:nPoints %coordinating current position
     drawnow;
     pause(0.1);
 end
-
-%function xyt = rotate(xy, theta)
+% attempt to solve issue pertaining to lack of rotation for the patch
+function xyt = rotate(xy, theta)
     xyt = (TF(theta) * xy')';
-%end
+end
 
-%function y_rotate = TF(psi)
+function y_rotate = TF(psi)
     y_rotate = [ cos(psi), -sin(psi);
             sin(psi),  cos(psi) ];
-%end
+end
 
 
 %theta value is created from dy/dx. need to create something to calculate
