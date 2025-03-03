@@ -1,1 +1,1 @@
-begin
+The goal of this week was to create a longitudinal model that simulated 2 different EPA cycles within a 3 mph error. To begin, the desired speed was captured through text files and inputted into the system. The simulated speed of the system was calculated using a driver model, brakes, power terrain, wheel, and vehicle subsystems. The simulated and desired speed are sebnt through a PID controller to minimize the error. Both of our plots were within the 3 mph margin of error. 
