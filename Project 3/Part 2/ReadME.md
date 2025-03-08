@@ -1,1 +1,3 @@
-test
+Howdy! TO begin, download the Proj3_week2_init.m, Proj3_week2_main.m, Proj3_week2_runsim.m, and Proj3_week2_sim.slx files. These will be necessary to get the correct outputs needed for Part 2. Also download the hwycol.txt and uddscol.txt files as that data is the theoretical path that our vehicle is trying to model. Run the Proj3_week2_main.m file to obtain results.
+
+The results shown are the simulated velocity in blue, drive cycle velocity in red, and a 3 mph vehicle error band. These results should mirror the results from Part 1. The bar graph shows the total energy output between the 2 tracks. 
