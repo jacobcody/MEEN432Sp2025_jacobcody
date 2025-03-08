@@ -24,7 +24,7 @@ mph2mps = 0.447;
 
 GR = 9.34;
 
-%max torque
+%max torque from Tesla's website for the Model X
 max_torque = 967;
 
 
