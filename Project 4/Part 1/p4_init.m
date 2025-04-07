@@ -46,3 +46,33 @@ track.length_ft = 1000;              % Track length [ft]
 track.length_m = track.length_ft * 0.3048; % Convert to meters
 track.max_speed_mph = 60;            % Estimated max speed [mph]
 track.max_speed_mps = track.max_speed_mph * 0.44704; % Convert to m/s
+
+
+carData.Inertia = 1600; %inertia in kg/m^2
+carData.Mass = 1000; %car mass in kg
+carData.init.X0 = 0; %initial x position of car (m)
+carData.init.Y0 = 0; %initial y position of car (m)
+carData.init.vx0 = 0.1; %initial x velocity of car (m)
+carData.init.vy0 = 0;   %initial y velocity of car (m)
+carData.init.omega0 = 0; %initial yaw rate (rad/s)
+carData.init.psi0 = 0;   %initial yaw angle (rad)
+
+%Set parameters for the car
+
+carData.Calpha_f = 40000; %front tire coefficient (N/rad)
+carData.Calpha_r = 40000; %rear tire coefficient (N/rad)
+carData.Fyfmax = 40000*1/180*pi; %max front tire force (N)
+carData.Fyrmax = 40000*1/180*pi; %max rear tire force (N)
+carData.lr = 1.5; %distance from center of car to rear axis
+carData.lf = 1.0; %distance from center of car to rear axis
+carData.radius = 0.3; %radius of tires (m)
+carData.maxAlpha = 1 / 180 * pi; %max alpha angle (rad)
+
+%Iterative values
+carData.vxd = 10; % m/s - X Velo
+carData.vx_threshold1 = 0.1; % m/s - Minimum x velo
+
+K_p = 2;
+K_i = 0.8;
+K_d = 0;
+
