@@ -9,4 +9,4 @@ Motor efficiency is mapped separately to adjust electrical power calculations an
 SOC updating is handled by an external modular system design. 
 
 The car follows all of the required as outlined by Project 4 such as 100% fricton braking if the car is under 5 mph, a SOC between 10%-95%, and a friction braking percentage that drops linearly to 5% at 25 mph.
-For future work, we would continue to iterate through the PID controls for the 2 controllers in the Racer model. We would also review the electric motor drive subsystem.
+For future work, we would continue to iterate through the PID controls for the 2 controllers in the Racer model and would review components of the electric motor drive subsystem.
