@@ -1,14 +1,12 @@
 Howdy Nathan!
 
-Attached are our final scripts for Project 4 files Proj4_track.m, 
-Proj4_output, Proj4_init.m, and raceStat.m as well as our simulink Proj4_sim.slx.
-After week 2 we were able to initially get the EV to run the required 5 laps, hitting 19 at one point, but now while implementing the battery
-the model has not been able to run and we are still investigating the cause of the error.
-This Simulink model provided attempts to implement the Electric Motor Drive (EMD) subsystem for an EV simulation.
-Inputs are the Accelerator Pedal Position or APP, motor speed, and battery SOC.
-For the outputs we have motor torque, battery voltage, battery current, and update SOC. 
-Here we have motor torque that is determined based on the APP and RPM. 
-Motor efficiency is mapped separately to adjust electrical power calculations. 
-Battery voltage is found by lookop based on SOC. 
+Attached are our scripts Project 4 files Proj4_track.m, 
+Proj4_output, Proj4_init.m, and raceStat.m as well as our simulink Proj4_sim.slx. Begin with downloading all the files and running the Proj4_output file to get results.
+
+This Simulink model provided attempts to implement the Electric Motor Drive (EMD) subsystem for an EV simulation. Inputs are the Accelerator Pedal Position or APP, motor speed, and battery SOC.
+For the outputs we have motor torque, battery voltage, battery current, and update SOC. Here we have motor torque that is determined based on the APP and RPM. 
+Motor efficiency is mapped separately to adjust electrical power calculations and battery voltage is found through a lookup table based on SOC. 
 SOC updating is handled by an external modular system design. 
-Make sure to initialize from the Proj4_init.m file.
+
+The car follows all of the required as outlined by Project 4 such as 100% fricton braking if the car is under 5 mph, a SOC between 10%-95%, and a friction braking percentage that drops linearly to 5% at 25 mph.
+For future work, we would continue to iterate through the PID controls for the 2 controllers in the Racer model. We would also review the electric motor drive subsystem.
