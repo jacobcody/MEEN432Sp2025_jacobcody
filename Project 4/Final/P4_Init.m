@@ -144,7 +144,7 @@ carData.radius = 0.3; %radius of tires (m)
 carData.maxAlpha = 1 / 180 * pi; %max alpha angle (rad)
 
 %Iterative values
-carData.vxd_ramp = 2.5; % m/s - X Velo
+carData.vxd_ramp = 10; % m/s - X Velo
 carData.vx_threshold1 = 0.1; % m/s - Minimum x velo
 
 K_p = 2;

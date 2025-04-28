@@ -1,13 +1,13 @@
 run("Proj4_track.m");
 run("P4_Init.m");
-simOut = sim("Proj4_sim_Marshall.slx");
+simOut = sim("Proj4_sim.slx");
 run('raceStat.m');
 
 xData = simOut.x_val.Data;
 yData = simOut.y_val.Data;
 t = simOut.x_val.Time;
 
-w = 10;
+w = 5;
 carShape = [ -2*w, -w;
               2*w, -w;
               2*w,  w;
