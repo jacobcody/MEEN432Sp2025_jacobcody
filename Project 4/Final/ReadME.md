@@ -1,6 +1,6 @@
 Howdy Nathan!
 
-Attached are our scripts Project 4 files Proj4_track.m, 
+Attached are our final scripts for Project 4 files Proj4_track.m, 
 Proj4_output, Proj4_init.m, and raceStat.m as well as our simulink Proj4_sim.slx.
 After week 2 we were able to initially get the EV to run the required 5 laps, hitting 19 at one point, but now while implementing the battery
 the model has not been able to run and we are still investigating the cause of the error.
