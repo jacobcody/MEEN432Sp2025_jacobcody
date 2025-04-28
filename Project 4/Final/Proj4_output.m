@@ -1,6 +1,6 @@
 run("Proj4_track.m");
 run("P4_Init.m");
-simOut = sim("Proj4_sim.slx",1000);
+simOut = sim("Proj4_sim_Marshall.slx");
 run('raceStat.m');
 
 xData = simOut.x_val.Data;

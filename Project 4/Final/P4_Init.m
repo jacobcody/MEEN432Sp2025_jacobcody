@@ -32,6 +32,7 @@ datCar.Fyrmax = 40000*2/180*pi;  % maximum rear tire force achievable (N)
 datCar.lr = 1.5; % m  distance of center of mass to front axle
 datCar.lf = 1.0; % m  distance of center of mass to rear axle
 datCar.radius = 0.3; %m  tire radius
+carData.r = 0.3; %mirroring same thing
 datCar.maxAlpha = 2 / 180 * pi;  % maximum alpha value to be used in calc (rad)
 datCar.Iw = 0.5*7*(datCar.radius^2);
 
