@@ -2,29 +2,29 @@ clear; clc;
 run('P4_Init.m');
 simOut = sim('Proj4_sim.slx'); 
 
-% Data from the simulation
+%Data from sim
 xData = simOut.x_val.Data;  
 yData = simOut.y_val.Data; 
 t = simOut.x_val.Time;     
 
-% Define track parameters
+%Track creation
 track.radius = 200; 
 track.width = 15;   
 track.l_straightaways = 900; 
 
-% Finding the track length
+%Length of track
 track_length = 2 * pi * track.radius + 2 * track.l_straightaways;
 
-% Calculating the total distance traveled
+%Distance based on length
 distance_traveled = sum(sqrt(diff(xData).^2 + diff(yData).^2));
 
-% Number of laps calculations
+%Laps
 num_laps = floor(distance_traveled / track_length);
 
-% Determine completion time
+%Completion time
 completion_time = t(end) - t(1);
 
-% track boundary checks
+%Out of bounds checks
 out_of_track = false;
 for i = 1:length(xData)
     radial_distance = sqrt(xData(i)^2 + yData(i)^2);
